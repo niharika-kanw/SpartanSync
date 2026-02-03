@@ -24,8 +24,7 @@ type AuthContextValue = {
 const AuthContext = createContext<AuthContextValue | undefined>(undefined);
 
 const isAllowedEmail = (_email?: string | null) => {
-    // TEMPORARY: Allowing all emails for debugging
-    return true;
+    return _email?.toLowerCase().endsWith("@msu.edu") ?? false;
 };
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
